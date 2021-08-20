@@ -51,7 +51,10 @@ app.post("/", function (req, res) {
     );
   }
 
-  run().catch((e) => res.sendFile(__dirname + "/failure.html"));
+  run().catch((e) => {
+    console.log(e.status);
+    res.sendFile(__dirname + "/failure.html");
+  });
 });
 
 app.post("/failure", function (req, res) {
